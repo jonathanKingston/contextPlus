@@ -34,7 +34,7 @@ if (browser.contextualIdentities !== undefined) {
 
       browser.contextMenus.onClicked.addListener(function (info, tab) {
         if (contextStore.hasOwnProperty(info.menuItemId)) {
-          const moveTab = !info.modifiers.includes('Ctrl');
+          const moveTab = !(info.modifiers && info.modifiers.includes('Ctrl'));
           const cookieStoreId = contextStore[info.menuItemId];
           const newTabData = {
             active,
